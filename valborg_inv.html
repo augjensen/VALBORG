@@ -15,7 +15,7 @@
             text-align: center;
             color: white;
             font-family: Arial, sans-serif;
-            background: url('background.jpg') no-repeat center center/cover;
+            background: url('Valborg.jpeg') no-repeat center center/cover;
         }
         .container {
             background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
@@ -28,18 +28,13 @@
     <div class="container">
         <h1>You're Invited!</h1>
         <p>Join us for a special celebration on [Date] at [Location].</p>
+        
+        <!-- Embedded Spotify Song -->
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/3PraD108MDoXgHWCv2RRG3?utm_source=generator" 
+                width="300" height="80" frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
     </div>
-
-    <audio id="music" loop>
-        <source src="song.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        window.addEventListener('click', () => {
-            document.getElementById('music').play();
-        });
-    </script>
 </body>
 </html>
-

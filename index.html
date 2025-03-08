@@ -15,28 +15,66 @@
             text-align: center;
             color: white;
             font-family: Arial, sans-serif;
-            background: url('valborg.jpg') no-repeat center center/cover;
+            background: url('valborg.jpeg') no-repeat center center/cover;
         }
         .container {
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
             padding: 20px;
             border-radius: 15px;
+            width: 80%;
+            max-width: 700px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>You're Invited!</h1>
-        <p>
-            Kom och fira Valborg med oss i Uppsala!!
-            </p>
+        <h1>Du är inbjuden!!</h1>
+        <p>Sjung om studentens lyckliga dar och välkomna sköna maj med oss på VALBORG I UPPSALA!</p>
         
+        <h2>Schema:</h2>
+        <ul>
+            <li>10.00 Olivia åker forsränning i Fyrisån</li>
+            <li>Ekomikumhäng</li>
+            <li>15.00 Mösspåtagning vid Carolina Redivia</li>
+            <li>Drop-in från 16.00: Valborgsmingel & FEST! på Konsumvägen 37B</li>
+            <li>Ca 17.00: Live-jazz med Bengan & the Band!</li>
+            <li>Ca 19.00: Grill!</li>
+            <li>00.00: Sköna maj välkommen!!</li>
+        </ul>
+
+        <p>Kom när det passar och fira en klassisk Valborg med oss!</p>
+
         <!-- Embedded Spotify Song -->
         <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/track/0EoqC5EKuKKZ0pY2yP2hP4" 
+                src="https://open.spotify.com/embed/track/3PraD108MDoXgHWCv2RRG3?utm_source=generator" 
                 width="300" height="80" frameborder="0" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
         </iframe>
     </div>
+
+    <!-- Audio Player with Autoplay -->
+    <audio id="music" autoplay loop>
+        <source src="song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>

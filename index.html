@@ -23,6 +23,7 @@
             border-radius: 15px;
             width: 80%;
             max-width: 700px;
+            display: none; /* Hide content initially */
         }
         h1 {
             font-size: 3em;
@@ -33,38 +34,53 @@
             margin-top: 20px;
         }
         ul {
-            list-style-type: none; /* Removes default bullets */
+            list-style-type: none;
             padding-left: 0;
             margin: 0;
         }
         ul li {
             font-size: 1.2em;
             margin: 10px 0;
-            text-align: left; /* Align text to the left */
-            padding-left: 20px; /* Indentation for each list item */
+            text-align: left;
+            padding-left: 20px;
             position: relative;
         }
         ul li::before {
-            content: "•"; /* Adds a custom bullet point */
+            content: "•";
             position: absolute;
             left: 0;
-            color: black; /* Bullet color */
+            color: black;
             font-size: 1.5em;
             line-height: 1.2em;
         }
         p {
             font-size: 1.2em;
         }
+        #passwordForm {
+            margin-bottom: 20px;
+        }
+        #errorMessage {
+            color: red;
+            font-size: 1.2em;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div id="passwordForm">
+        <h1>Enter Password</h1>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="errorMessage">Incorrect password. Please try again.</p>
+    </div>
+
+    <div class="container" id="content">
         <h1>Du är inbjuden!!</h1>
         <p>Sjung om studentens lyckliga dar och välkomna sköna maj med oss på VALBORG I UPPSALA!</p>
         
-        <h2>Dagschema:</h2>
+        <h2>Schema:</h2>
         <ul>
-            <li>10.00 Forsränning vid Fyrisån! Olivia åker för Rejlers</li>
+            <li>10.00 Olivia åker forsränning i Fyrisån</li>
             <li>Ekomikumhäng</li>
             <li>15.00 Mösspåtagning vid Carolina Redivia</li>
             <li>Drop-in från 16.00: Valborgsmingel & FEST! på Konsumvägen 37B</li>
@@ -75,7 +91,7 @@
 
         <p>Kom och var med när det passar och fira en klassisk Valborg med oss!</p>
 
-        <!-- Embedded Spotify Song starting 10 seconds in -->
+        <!-- Embedded Spotify Song starting 15 seconds in -->
         <iframe style="border-radius:12px" 
                 src="https://open.spotify.com/embed/track/0mXCLGvEtgxpeQmmOcTv1p?utm_source=generator&start=15" 
                 width="300" height="80" frameborder="0" 
@@ -83,10 +99,29 @@
         </iframe>
     </div>
 
-    <!-- Audio Player with Autoplay -->
-    <audio id="music" autoplay loop>
+    <audio id="music" autoplay loop style="display:none;">
         <source src="song.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <script>
+        const correctPassword = "valborg123";  // Set your desired password here
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const content = document.getElementById('content');
+
+            if (enteredPassword === correctPassword) {
+                // Show the content and play the song
+                content.style.display = 'block';
+                document.getElementById('music').play();  // Start the song
+                document.getElementById('passwordForm').style.display = 'none'; // Hide password form
+            } else {
+                // Display error message
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

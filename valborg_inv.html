@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center/cover;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+            padding: 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You're Invited!</h1>
+        <p>Join us for a special celebration on [Date] at [Location].</p>
+    </div>
+
+    <audio id="music" loop>
+        <source src="song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.addEventListener('click', () => {
+            document.getElementById('music').play();
+        });
+    </script>
+</body>
+</html>
+

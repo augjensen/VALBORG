@@ -33,12 +33,24 @@
             margin-top: 20px;
         }
         ul {
-            list-style-type: none;
+            list-style-type: none; /* Removes default bullets */
             padding-left: 0;
+            margin: 0;
         }
         ul li {
             font-size: 1.2em;
             margin: 10px 0;
+            text-align: left; /* Align text to the left */
+            padding-left: 20px; /* Indentation for each list item */
+            position: relative;
+        }
+        ul li::before {
+            content: "•"; /* Adds a custom bullet point */
+            position: absolute;
+            left: 0;
+            color: black; /* Bullet color */
+            font-size: 1.5em;
+            line-height: 1.2em;
         }
         p {
             font-size: 1.2em;
@@ -50,9 +62,9 @@
         <h1>Du är inbjuden!!</h1>
         <p>Sjung om studentens lyckliga dar och välkomna sköna maj med oss på VALBORG I UPPSALA!</p>
         
-        <h2>Schema:</h2>
+        <h2>Dagschema:</h2>
         <ul>
-            <li>10.00 Olivia åker forsränning i Fyrisån</li>
+            <li>10.00 Forsränning vid Fyrisån! Olivia åker för Rejlers</li>
             <li>Ekomikumhäng</li>
             <li>15.00 Mösspåtagning vid Carolina Redivia</li>
             <li>Drop-in från 16.00: Valborgsmingel & FEST! på Konsumvägen 37B</li>

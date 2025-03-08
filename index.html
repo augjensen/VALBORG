@@ -13,31 +13,40 @@
             justify-content: center;
             height: 100vh;
             text-align: center;
-            color: black;
+            background: url('valborg.jpeg') no-repeat center center/cover; /* Use valborg.jpg as the background */
             font-family: Arial, sans-serif;
-            background: url('valborg.jpeg') no-repeat center center/cover;
         }
+
         .container {
-            background: rgba(255, 105, 180, 0.6); /* Pink overlay with 60% opacity */
+            background: rgba(255, 255, 0, 0.6); /* Yellow background with 60% opacity */
             padding: 20px;
             border-radius: 15px;
             width: 80%;
             max-width: 700px;
-            display: none; /* Hide content initially */
+            position: relative;
+            z-index: 1;
+            border: 10px solid blue; /* Blue border around the container */
         }
+
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
+            color: black;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Shadow effect for the text */
         }
+
         h2 {
             font-size: 2em;
             margin-top: 20px;
+            color: black;
         }
+
         ul {
             list-style-type: none;
             padding-left: 0;
             margin: 0;
         }
+
         ul li {
             font-size: 1.2em;
             margin: 10px 0;
@@ -45,6 +54,7 @@
             padding-left: 20px;
             position: relative;
         }
+
         ul li::before {
             content: "•";
             position: absolute;
@@ -53,29 +63,47 @@
             font-size: 1.5em;
             line-height: 1.2em;
         }
+
         p {
             font-size: 1.2em;
+            color: black;
         }
-        #passwordForm {
-            margin-bottom: 20px;
-        }
-        #errorMessage {
-            color: red;
-            font-size: 1.2em;
-            display: none;
+
+        /* Create a yellow outline behind the text */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            border: 5px solid yellow; /* Yellow border around the text */
+            border-radius: 15px;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <div id="passwordForm">
-        <h1>Enter Password</h1>
-        <input type="password" id="passwordInput" placeholder="Enter password">
-        <button onclick="checkPassword()">Submit</button>
-        <p id="errorMessage">Incorrect password. Please try again.</p>
-    </div>
-
     <div class="container" id="content">
         <h1>Du är inbjuden!!</h1>
+        
+        <!-- Embedded Spotify Song starting 15 seconds in -->
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/3PraD108MDoXgHWCv2RRG3?utm_source=generator&start=25" 
+                width="300" height="80" frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+        <iframe style="border-radius:12px" 
+        		src="https://open.spotify.com/embed/track/7s8GdnKYgnZdIdDAwbITuu?utm_source=generator" 
+        		width="300" height="80" frameborder="0" 
+        		allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+		</iframe>
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/0mXCLGvEtgxpeQmmOcTv1p?utm_source=generator&start=25" 
+                width="300" height="80" frameborder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+        
         <p>Sjung om studentens lyckliga dar och välkomna sköna maj med oss på VALBORG I UPPSALA!</p>
         
         <h2>Schema:</h2>
@@ -90,38 +118,11 @@
         </ul>
 
         <p>Kom och var med när det passar och fira en klassisk Valborg med oss!</p>
-
-        <!-- Embedded Spotify Song starting 15 seconds in -->
-        <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/0mXCLGvEtgxpeQmmOcTv1p?utm_source=generator&start=15" 
-                width="300" height="80" frameborder="0" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
     </div>
 
     <audio id="music" autoplay loop style="display:none;">
         <source src="song.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-
-    <script>
-        const correctPassword = "valborg123";  // Set your desired password here
-
-        function checkPassword() {
-            const enteredPassword = document.getElementById('passwordInput').value;
-            const errorMessage = document.getElementById('errorMessage');
-            const content = document.getElementById('content');
-
-            if (enteredPassword === correctPassword) {
-                // Show the content and play the song
-                content.style.display = 'block';
-                document.getElementById('music').play();  // Start the song
-                document.getElementById('passwordForm').style.display = 'none'; // Hide password form
-            } else {
-                // Display error message
-                errorMessage.style.display = 'block';
-            }
-        }
-    </script>
 </body>
 </html>
